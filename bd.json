@@ -1,0 +1,34 @@
+[
+    {
+        "userId": "38d7dhs230-7djsh23-ld-4d",
+        "name": "John Doe",
+        "balance": 15.00,
+        "history": [
+            {
+                "date": "2020-01-01",
+                "type": "deposit",
+                "description": "Initial deposit",
+                "amount": 10.00
+            }, 
+            {
+                "date": "2020-01-30",
+                "type": "transfer",
+                "description": "Transfer from Julio",
+                "amount": 5.00
+            }
+        ]
+    },
+    {
+        "userId": "763dh242-9384jd24-ld-4d",
+        "name": "Ana Fernada",
+        "history":[
+            {
+                "date": "2020-01-01",
+                "type": "deposit",
+                "description": "Initial deposit",
+                "amount": 500.00
+            }
+        ],
+        "balance": 500.00
+    }
+]
