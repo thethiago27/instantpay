@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getPayment } from "../controllers/payment";
+import { getPayment, createWallet } from "../controllers/payment";
 
 const router = Router();
 
@@ -8,6 +8,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/payment/create", getPayment)
+router.post("/wallet", createWallet)
 
 export default router;
 

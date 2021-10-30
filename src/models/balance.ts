@@ -1,3 +1,4 @@
+import sha256 from 'crypto-js/sha256';
 import Mongo from '../database/mongo';
 
 const connection = new Mongo();
@@ -36,6 +37,8 @@ export async function transferBalance(from: string, to: string, amount: number) 
     await registerTransaction(from, -amount, `Transfer to ${to}`);
 }
 
+// Register Transaction
+
 async function registerTransaction(userId: string, amount: number, description: string) {
     await (await connection.collection('balance'))
         .updateOne({ userId }, { $push: { history: {
@@ -45,5 +48,25 @@ async function registerTransaction(userId: string, amount: number, description: 
             type: "Transfer"
         }} 
     });
+}
+
+// Create User Balance
+
+export async function createBalance(userId: string) {
+
+    const hash = sha256(userId).toString();
+
+    const checkIsExist = await (await connection.collection('balance')).findOne({ userId: hash });
+
+    if (checkIsExist) {
+        throw new Error('User already exist');
+    }
+
+    await (await connection.collection('balance')).insertOne({
+        userId: hash,
+        balance: 0,
+        history: []
+    });
+    
 }
 
