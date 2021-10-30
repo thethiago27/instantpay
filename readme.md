@@ -1,8 +1,10 @@
 # InstantPay
 
-InstantPay é uma API de pagamento instantâneo entre usuários, de um aplicativo de Chat
+InstantPay é uma API de pagamento instantâneo entre usuários.
 
-Em breve, você irá pode conhecer o aplicativo de Chat.
+# TODO
+- Adicionar a API do Stripe para permitir os usuários adicionarem dinheiro as suas carteiras.
+- Criar um blockchain para salvar todas as transações
 
 ## Tecnlogias
 
@@ -48,6 +50,7 @@ com um JWT, assinado e com o parâmetro { userId: "<token>" }
 ROTAS:
  
 [POST] /payment/create - Cria um novo pagamento
+[POST] /wallet - Cria uma carteira para o usuário
  
 Exemplo de requisição
  
